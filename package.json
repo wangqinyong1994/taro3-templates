@@ -27,7 +27,7 @@
     "dev:qq": "npm run build:qq -- --watch",
     "dev:jd": "npm run build:jd -- --watch",
     "dev:quickapp": "npm run build:quickapp -- --watch",
-    "prettier": "prettier -c --write '**/*.{js,jsx,scss,json}'",
+    "prettier": "prettier -c --write './src/**/*.{js,jsx,less,json}'",
     "lint-staged": "lint-staged",
     "lint-staged:js": "eslint --ext .js,.jsx ./src",
     "lint:fix": "eslint --fix --cache --ext .js,.jsx --format=stylish ./src"
@@ -45,7 +45,7 @@
     }
   },
   "lint-staged": {
-    "**/*.{js,jsx,scss,json}": [
+    "**/*.{js,jsx,less,json}": [
       "npm run prettier",
       "git add"
     ],

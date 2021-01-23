@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, Image, Button } from '@tarojs/components';
+import { View, Text, Image } from '@tarojs/components';
 import { FormLayout } from '@/common';
 import { HelloWorld } from '@/components';
-// import { Button } from 'antd-mobile';
+import { Button } from 'antd-mobile';
 import classnames from 'classnames/bind';
 
 import Weixin from '@/assets/images/weixin.png';

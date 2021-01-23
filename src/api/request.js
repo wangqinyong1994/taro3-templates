@@ -22,15 +22,13 @@ const codeMessage = {
   504: '网关超时。',
 };
 
-const request = (url, data, options = {}) => {
-  // console.log(25, store.getState().user);
+const request = (url, data, options = {}, method) => {
   const { token } = store.getState().user;
-  const { method } = options;
   const isGet = method === 'get';
 
   const unUseTokenList = ['/api/gridcloud-usercenter/login'];
 
-  const useToken = !unUseTokenList.some((item) => url.indexOf(item) > -1);
+  const useToken = !unUseTokenList.some(item => url.indexOf(item) > -1);
 
   const header =
     token && useToken
@@ -47,14 +45,14 @@ const request = (url, data, options = {}) => {
         };
 
   const newOptions = {
-    method: options.method || 'post',
+    method,
     header,
     ...options,
   };
 
   const interceptor = function (chain) {
     const requestParams = chain.requestParams;
-    return chain.proceed(requestParams).then((res) => {
+    return chain.proceed(requestParams).then(res => {
       return res;
     });
   };
@@ -66,7 +64,7 @@ const request = (url, data, options = {}) => {
       url,
       data,
       ...newOptions,
-      success: async (res) => {
+      success: async res => {
         if (res.data) {
           if (!res.data.success) {
             if (res.data.msg) {
@@ -76,7 +74,7 @@ const request = (url, data, options = {}) => {
         }
         resolve(res.data.data);
       },
-      fail: async (res) => {
+      fail: async res => {
         if (res.status !== 200) {
           Toast.fail(codeMessage[res.status], 2);
         }
@@ -89,6 +87,14 @@ const request = (url, data, options = {}) => {
   });
 
   return promise;
+};
+
+export const post = (url, data, options) => {
+  return request(url, data, options, 'post');
+};
+
+export const get = (url, data, options) => {
+  return request(url, data, options, 'get');
 };
 
 export default request;

@@ -1,4 +1,4 @@
-import { ADD, MINUS, ADD_PERSIST, MINUS_PERSIST } from '../constants/counter';
+import { ADD, MINUS, ADD_PERSIST, MINUS_PERSIST } from '../constants';
 
 export const add = () => {
   return {
@@ -24,7 +24,7 @@ export const minusPersist = () => {
 
 // 异步的action
 export function asyncAdd() {
-  return (dispatch) => {
+  return dispatch => {
     setTimeout(() => {
       dispatch(add());
     }, 2000);
@@ -33,7 +33,7 @@ export function asyncAdd() {
 
 // 异步的action
 export function asyncAddPersist() {
-  return (dispatch) => {
+  return dispatch => {
     setTimeout(() => {
       dispatch(addPersist());
     }, 2000);

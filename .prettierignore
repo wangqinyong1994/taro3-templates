@@ -3,5 +3,5 @@
 **/*.ejs
 **/*.html
 public/
-.temp/
+node_modules/
 package.json

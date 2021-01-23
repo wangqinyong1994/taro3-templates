@@ -4,7 +4,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
 import Taro from '@tarojs/taro';
 import { isType } from '@/utils';
-import rootReducer from '../reducers';
+import rootReducer from './reducers';
 
 const composeEnhancers =
   typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__

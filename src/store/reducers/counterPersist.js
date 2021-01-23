@@ -1,17 +1,17 @@
-import { ADD, MINUS } from '../constants/counter';
+import { ADD_PERSIST, MINUS_PERSIST } from '../constants';
 
 const INITIAL_STATE = {
   num: 0,
 };
 
-export default function counter(state = INITIAL_STATE, action) {
+export default function counterPersist(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case ADD:
+    case ADD_PERSIST:
       return {
         ...state,
         num: state.num + 1,
       };
-    case MINUS:
+    case MINUS_PERSIST:
       return {
         ...state,
         num: state.num - 1,

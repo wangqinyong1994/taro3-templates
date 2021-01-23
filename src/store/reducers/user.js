@@ -2,7 +2,7 @@ import {
   SET_TOKEN,
   SET_USER_INFO,
   SET_USER_MOBILEMENUTREE,
-} from '../constants/counter';
+} from '../constants';
 
 const INITIAL_STATE = {
   token: '',

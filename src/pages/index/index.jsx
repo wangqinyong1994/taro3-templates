@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Text, Image } from '@tarojs/components';
 import { Button, Picker, List } from 'antd-mobile';
-
 import classnames from 'classnames/bind';
+
+import { queryPage } from '@/api';
 
 import Weixin from '@/assets/images/weixin.png';
 
@@ -14,7 +15,7 @@ import {
   addPersist,
   minusPersist,
   asyncAddPersist,
-} from '../../actions/counter';
+} from '@/store/actions/counter';
 
 import styles from './index.module.less';
 
@@ -48,7 +49,7 @@ const seasons = [
     counter,
     counterPersist,
   }),
-  (dispatch) => ({
+  dispatch => ({
     add() {
       dispatch(add());
     },
@@ -74,15 +75,13 @@ class Index extends Component {
     sValue: ['2013', '春'],
   };
 
-  componentWillReceiveProps(nextProps) {
-    console.log(this.props, nextProps);
+  componentDidMount() {
+    queryPage({
+      belongOrgCode: '.',
+      pageNum: 1,
+      pageSize: 10,
+    });
   }
-
-  componentWillUnmount() {}
-
-  componentDidShow() {}
-
-  componentDidHide() {}
 
   render() {
     return (
@@ -94,8 +93,8 @@ class Index extends Component {
           cascade={false}
           extra="请选择(可选)"
           value={this.state.sValue}
-          onChange={(v) => this.setState({ sValue: v })}
-          onOk={(v) => this.setState({ sValue: v })}
+          onChange={v => this.setState({ sValue: v })}
+          onOk={v => this.setState({ sValue: v })}
         >
           <List.Item arrow="horizontal">Multiple</List.Item>
         </Picker>

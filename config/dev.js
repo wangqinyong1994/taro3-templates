@@ -13,6 +13,10 @@ module.exports = {
           target: 'http://192.168.1.179:6080',
           changeOrigin: true,
         },
+        '/api/gridcloud-gridcenter': {
+          target: 'http://192.168.1.179:6080',
+          changeOrigin: true,
+        },
       },
     },
   },

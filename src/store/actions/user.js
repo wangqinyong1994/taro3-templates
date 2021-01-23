@@ -3,9 +3,9 @@ import {
   SET_TOKEN,
   SET_USER_INFO,
   SET_USER_MOBILEMENUTREE,
-} from '../constants/counter';
+} from '../constants';
 
-export const setToken = (token) => {
+export const setToken = token => {
   return {
     type: SET_TOKEN,
     payload: {
@@ -14,7 +14,7 @@ export const setToken = (token) => {
   };
 };
 
-export const setUserInfo = (userInfo) => {
+export const setUserInfo = userInfo => {
   return {
     type: SET_USER_INFO,
     payload: {
@@ -23,7 +23,7 @@ export const setUserInfo = (userInfo) => {
   };
 };
 
-export const setUserMobileMenuTree = (userMobileMenuTree) => {
+export const setUserMobileMenuTree = userMobileMenuTree => {
   return {
     type: SET_USER_MOBILEMENUTREE,
     payload: {
@@ -34,12 +34,12 @@ export const setUserMobileMenuTree = (userMobileMenuTree) => {
 
 // 异步的action
 export function asyncSetToken(token) {
-  return (dispatch) => {
+  return dispatch => {
     dispatch(setToken(token));
-    viewUserInfo().then((res) => {
+    viewUserInfo().then(res => {
       dispatch(setUserInfo(res));
     });
-    viewUserMobileMenuTree({ ename: 'mobile-gridApp' }).then((res) => {
+    viewUserMobileMenuTree({ ename: 'mobile-gridApp' }).then(res => {
       dispatch(setUserMobileMenuTree(res));
     });
   };

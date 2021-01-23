@@ -7,7 +7,7 @@ import classnames from 'classnames/bind';
 import JSEncrypt from 'jsencrypt';
 import { login } from '@/api';
 
-import { asyncSetToken } from '../../actions/user';
+import { asyncSetToken } from '../../store/actions/user';
 
 import styles from './index.module.less';
 
@@ -22,7 +22,7 @@ encrypt.setPublicKey(RSA_LOGIN_PUBLIC_KEY);
   ({ user }) => ({
     user,
   }),
-  (dispatch) => ({
+  dispatch => ({
     asyncSetToken(token) {
       dispatch(asyncSetToken(token));
     },
@@ -79,7 +79,7 @@ class Index extends Component {
           clear
           placeholder="请输入账号"
           value={identifier}
-          onChange={(val) => this.changeInput('identifier', val)}
+          onChange={val => this.changeInput('identifier', val)}
         >
           账号
         </InputItem>
@@ -87,7 +87,7 @@ class Index extends Component {
           clear
           placeholder="请输入密码"
           value={credential}
-          onChange={(val) => this.changeInput('credential', val)}
+          onChange={val => this.changeInput('credential', val)}
         >
           密码
         </InputItem>
