@@ -1,0 +1,3 @@
+[submodule "taro-template"]
+	path = taro-template
+	url = https://github.com/wangqinyong1994/taro-template.git
