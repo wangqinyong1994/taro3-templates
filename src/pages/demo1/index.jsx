@@ -28,7 +28,7 @@ class Index extends Component {
         wrapClassName={cx('demo1-wrap')}
         renderFormWrap={
           <View className={cx('index')}>
-            <View>啦啦啦啦啦</View>
+            <View>啦啦啦啦啦2</View>
             <HelloWorld />
             <View>
               <Text>Hello, World</Text>
