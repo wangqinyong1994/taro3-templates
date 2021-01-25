@@ -21,6 +21,7 @@ const codeMessage = {
   504: '网关超时。',
 };
 
+// 编译成h5需要对应修改
 const request = (url, data, options = {}, method) => {
   const { token } = store.getState().user;
   const isGet = method === 'get';
@@ -57,7 +58,6 @@ const request = (url, data, options = {}, method) => {
   };
 
   Taro.addInterceptor(interceptor);
-  // 编译成h5需要对应修改
   const promise = new Promise((resolve, reject) => {
     Taro.request({
       url:
