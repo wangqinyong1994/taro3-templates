@@ -51,6 +51,12 @@ const config = {
     publicPath: '/',
     staticDirectory: 'static',
     postcss: {
+      pxtransform: {
+        enable: true,
+        config: {
+          selectorBlackList: ['am-'],
+        },
+      },
       autoprefixer: {
         enable: true,
         config: {},
@@ -66,6 +72,9 @@ const config = {
     output: {
       filename: 'js/[name].[hash:8].js',
       chunkFilename: 'js/[name].[chunkhash:8].js',
+    },
+    lessLoaderOption: {
+      javascriptEnabled: true,
     },
   },
 };
